@@ -39,6 +39,7 @@ Follow these steps to set up and access your CTF lab environment:
     When prompted, type `yes` to confirm.
 
 5. After the apply completes, note the `ctf_instance_public_ip` output. You'll use this to connect to your lab environment.
+![Terrform Apply output](/phase1/aws/images/terraform-apply-screenshot.png)
 
 ## Accessing the Lab Environment
 
@@ -52,6 +53,7 @@ To access your lab environment:
 
 2. When prompted for a password, enter: `CTFpassword123!`
 3. Once logged in, you'll see a welcome message with instructions for your first challenge.
+![ssh into the instance](/phase1/aws/images/ssh-screenshot.png)
 
 ## Challenges
 
