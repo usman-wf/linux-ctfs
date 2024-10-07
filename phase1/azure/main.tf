@@ -14,7 +14,7 @@ provider "azurerm" {
 # Create a resource group
 resource "azurerm_resource_group" "ctf_rg" {
   name     = "ctf-resources"
-  location = "var.az_region"
+  location = var.az_region
 }
 
 # Create a virtual network
