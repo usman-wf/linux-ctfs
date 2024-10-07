@@ -1,32 +1,20 @@
-# Configure the Azure provider
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 2.65"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.1.0"
-    }
-  }
+# Variables
+
+variable "az_region" {
+  description = "The region to deploy the CTF lab"
+  type        = string
+  default     = "East US"
 }
 
+# Configure the Azure provider
 provider "azurerm" {
   features {}
-}
-
-# Generate random password
-resource "random_password" "vm_password" {
-  length           = 16
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
 # Create a resource group
 resource "azurerm_resource_group" "ctf_rg" {
   name     = "ctf-resources"
-  location = "East US"
+  location = "var.az_region"
 }
 
 # Create a virtual network
@@ -53,6 +41,25 @@ resource "azurerm_public_ip" "ctf_public_ip" {
   allocation_method   = "Dynamic"
 }
 
+# Create a network security group
+resource "azurerm_network_security_group" "ctf_nsg" {
+  name                = "ctf-nsg"
+  location            = azurerm_resource_group.ctf_rg.location
+  resource_group_name = azurerm_resource_group.ctf_rg.name
+
+  security_rule {
+    name                       = "SSH"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
 # Create a network interface
 resource "azurerm_network_interface" "ctf_nic" {
   name                = "ctf-nic"
@@ -67,18 +74,24 @@ resource "azurerm_network_interface" "ctf_nic" {
   }
 }
 
+# Connect the security group to the network interface
+resource "azurerm_network_interface_security_group_association" "ctf_nic_nsg_assoc" {
+  network_interface_id      = azurerm_network_interface.ctf_nic.id
+  network_security_group_id = azurerm_network_security_group.ctf_nsg.id
+}
+
 # Create a Linux virtual machine
 resource "azurerm_linux_virtual_machine" "ctf_vm" {
   name                = "ctf-vm"
   resource_group_name = azurerm_resource_group.ctf_rg.name
   location            = azurerm_resource_group.ctf_rg.location
-  size                = "Standard_B1s"  # This is a minimal size, adjust as needed
-  admin_username      = "adminuser"
+  size                = "Standard_B1s"
+  admin_username      = "azureuser"
   network_interface_ids = [
     azurerm_network_interface.ctf_nic.id,
   ]
 
-  admin_password                  = random_password.vm_password.result
+  admin_password                  = "CTFAdminPassword123!"
   disable_password_authentication = false
 
   os_disk {
@@ -88,24 +101,15 @@ resource "azurerm_linux_virtual_machine" "ctf_vm" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts-gen2"
     version   = "latest"
   }
 
-  # Custom script extension for CTF setup
-  custom_data = base64encode(templatefile("ctf_setup.sh", {
-    admin_password = random_password.vm_password.result
-  }))
+  custom_data = base64encode(file("ctf_setup.sh"))
 }
 
 # Output the public IP address
 output "public_ip_address" {
-  value = azurerm_public_ip.ctf_public_ip.ip_address
-}
-
-# Output the VM password
-output "vm_password" {
-  value     = random_password.vm_password.result
-  sensitive = true
+  value = azurerm_linux_virtual_machine.ctf_vm.public_ip_address
 }
