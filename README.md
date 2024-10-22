@@ -1,6 +1,21 @@
-# Phase 1: Linux Command Line CTF Challenges Guide
+# Phase 1: Linux Command Line CTF Challenge
 
 Welcome, CTF participants! This guide will walk you through the seven challenges you'll face in this Linux Command Line Capture The Flag. Each challenge is designed to test a different aspect of your Linux skills. Remember, all flags are in the format CTF{some_text_here}.
+
+## Environment Setup
+
+This CTF challenge requires you to deploy a lab environment in your preferred cloud provider, everything is automated, please refer to individual guides to setup the environment. And then proceed with the CTF Challenges.
+Start by cloning this repo.
+
+```sh
+git clone https://github.com/rishabkumar7/ltc-linux-challenge
+```
+
+Then follow the appropriate guide to deploy the environment.
+
+- [AWS](./aws/README.md)
+- [Azure](./azure/README.md)
+- [GCP](./gcp/README.md)
 
 ## Challenge 1: The Hidden File
 
@@ -93,3 +108,10 @@ Welcome, CTF participants! This guide will walk you through the seven challenges
 5. Remember, Google is your friend! Looking up commands and their usage is a valuable skill in itself.
 
 Good luck, and happy hunting! Remember, the journey of learning is just as important as capturing the flags. Enjoy exploring the power of the Linux command line!
+
+## Author
+
+- LinkedIn: [rishabkumar7](https://linkedin.com/in/rishabkumar7)
+- X/Twitter: [@rishabincloud](https://x.com/rishabincloud)
+
+## License
