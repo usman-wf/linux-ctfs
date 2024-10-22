@@ -19,7 +19,7 @@ Then follow the appropriate guide to deploy the environment.
 
 ## Challenge 1: The Hidden File
 
-**Objective:** Find a hidden file in the current directory and read its contents.
+**Objective:** Find a hidden file in the `ctf_challenges` directory and read its contents.
 
 **Skills tested:**
 
