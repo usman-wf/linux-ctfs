@@ -114,4 +114,4 @@ Good luck, and happy hunting! Remember, the journey of learning is just as impor
 - LinkedIn: [rishabkumar7](https://linkedin.com/in/rishabkumar7)
 - X/Twitter: [@rishabincloud](https://x.com/rishabincloud)
 
-## License
+## [License](LICENSE)
