@@ -8,7 +8,7 @@ This CTF challenge requires you to deploy a lab environment in your preferred cl
 Start by cloning this repo.
 
 ```sh
-git clone https://github.com/rishabkumar7/ltc-linux-challenge
+git clone https://github.com/learntocloud/ltc-linux-challenge
 ```
 
 Then follow the appropriate guide to deploy the environment.

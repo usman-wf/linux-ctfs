@@ -22,8 +22,8 @@ Follow these steps to set up and access your CTF lab environment:
 1. Clone this repository to your local machine:
 
    ``` sh
-   git clone https://github.com/rishabkumar7/ltc-labs
-   cd ltc-labs/phase1/gcp
+   git clone https://github.com/learntocloud/ltc-linux-challenge
+   cd ltc-linux-challenge/gcp
    ```
 
 2. Authenticate with Google Cloud:
