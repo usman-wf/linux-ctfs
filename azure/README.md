@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed and configured on your
 If you leave this lab running, it's going to cost you $8/month, as it is running `Standard B1s` VM in Azure. Use the `terraform destroy` command to clean resources, once completed with CTFs.
 
 > [!NOTE]  
-> You might encounter an error, if your Azure account is a Student guide, please look at [this work aroud.](https://github.com/g-now-zero/l2c-guides/blob/main/posts/ctf-azure-spot-instances-guide.md)
+> You might encounter an error, if your Azure account is a Student account, please look at [this work aroud.](https://github.com/g-now-zero/l2c-guides/blob/main/posts/ctf-azure-spot-instances-guide.md)
 
 ## Getting Started
 
