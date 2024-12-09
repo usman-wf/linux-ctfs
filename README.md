@@ -86,7 +86,7 @@ Then follow the appropriate guide to deploy the environment.
 - Understanding process information
 - Reading process details
 
-**Hint:** The `netstat` or `ss` command can show you which processes are listening on which ports. How can you use these to find a process on a specific port?
+**Hint:** The `netstat` or `ss` command can show you which processes are listening on which ports. Install [netstat](https://www.geeksforgeeks.org/netstat-command-linux/) for your linux distribution and then see how can you use these to find a process on a specific port?
 
 ## Challenge 7: The Encoded Secret
 
