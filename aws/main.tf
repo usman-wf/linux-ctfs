@@ -84,10 +84,6 @@ resource "aws_security_group" "ctf_sg" {
   }
 }
 
-# Data source for the setup script
-data "template_file" "user_data" {
-  template = file("${path.module}/ctf_setup.sh")
-}
 
 # Create an EC2 Instance
 data "aws_ami" "amazon_linux_2" {
@@ -110,7 +106,7 @@ resource "aws_instance" "ctf_instance" {
 
   associate_public_ip_address = true
 
-  user_data = data.template_file.user_data.rendered
+  user_data = file("${path.module}/ctf_setup.sh")
 
   tags = {
     Name = "CTF Lab Instance"
