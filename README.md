@@ -107,6 +107,8 @@ Then follow the appropriate guide to deploy the environment.
 4. If you're stuck, try to break down the problem into smaller steps.
 5. Remember, Google is your friend! Looking up commands and their usage is a valuable skill in itself.
 
+There is also an [answer key](answer-key.md) that you can reference to check your own answers for flags!
+
 Good luck, and happy hunting! Remember, the journey of learning is just as important as capturing the flags. Enjoy exploring the power of the Linux command line!
 
 ## Author
