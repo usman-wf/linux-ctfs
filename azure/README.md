@@ -67,8 +67,6 @@ To access your lab environment:
 3. Once logged in, you'll see a welcome message with instructions for your first challenge.
 ![SSH into the instance](./images/ssh-screenshot.png)
 
-Note: There's also an admin user `azureuser` with password `CTFAdminPassword123!`, but you should use the `ctf_user` account for the challenges.
-
 ## Challenges
 
 Your CTF lab consists of 7 challenges, each testing different Linux command line skills. The challenges are:
