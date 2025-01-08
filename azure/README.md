@@ -43,10 +43,12 @@ Follow these steps to set up and access your CTF lab environment:
 4. Apply the Terraform configuration:
 
     ``` sh
-    terraform apply -var="az_region=YOUR_AZURE_REGION"
+    terraform apply \
+    -var az_region="YOUR_AZURE_REGION" \
+    -var subscription_id="YOUR_AZURE_SUBSCRIPTION_ID"
    ```
 
-   Replace `YOUR_AZURE_REGION` with Azure Region that you want to use, by default it uses East US.
+   Replace `YOUR_AZURE_REGION` with Azure Region and `YOUR_AZURE_SUBSCRIPTION_ID` with Azure Subscription that you want to use, by default it uses East US.
 
    When prompted, type `yes` to confirm.
 
