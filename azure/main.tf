@@ -86,12 +86,12 @@ resource "azurerm_linux_virtual_machine" "ctf_vm" {
   resource_group_name = azurerm_resource_group.ctf_rg.name
   location            = azurerm_resource_group.ctf_rg.location
   size                = "Standard_B1s"
-  admin_username      = "azureuser"
+  admin_username      = "ctf_user"
   network_interface_ids = [
     azurerm_network_interface.ctf_nic.id,
   ]
 
-  admin_password                  = "CTFAdminPassword123!"
+  admin_password                  = "CTFpassword123!"
   disable_password_authentication = false
 
   os_disk {
