@@ -54,7 +54,7 @@ Then follow the appropriate guide to deploy the environment.
 
 ## Challenge 4: The User Detective
 
-**Objective:** Identify the user with UID 1001 and find the flag in their home directory.
+**Objective:** Identify the user with UID 1002 and find the flag in their home directory.
 
 **Skills tested:**
 
@@ -84,7 +84,7 @@ Then follow the appropriate guide to deploy the environment.
 
 - Using network-related commands (netstat, ss, or lsof)
 - Understanding process information
-- Reading process details
+- Reading process details and check what is running on the specific port (using curl)
 
 **Hint:** The `netstat` or `ss` command can show you which processes are listening on which ports. Install [netstat](https://www.geeksforgeeks.org/netstat-command-linux/) for your linux distribution and then see how can you use these to find a process on a specific port?
 

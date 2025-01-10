@@ -48,7 +48,7 @@ To access your lab environment:
 1. Use SSH to connect to the EC2 instance:
 
     ``` sh
-      ssh ec2-user@<ctf_instance_public_ip>
+      ssh ctf_user@<ctf_instance_public_ip>
     ```
 
 2. When prompted for a password, enter: `CTFpassword123!`
