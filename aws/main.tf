@@ -86,27 +86,31 @@ resource "aws_security_group" "ctf_sg" {
 
 
 # Create an EC2 Instance
-data "aws_ami" "amazon_linux_2" {
+data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["amazon"]
   
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_instance" "ctf_instance" {
-  ami           = data.aws_ami.amazon_linux_2.id  # Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type
+  ami           = data.aws_ami.ubuntu.id 
   instance_type = "t2.micro"
-  # Remove the key_name attribute
 
   vpc_security_group_ids = [aws_security_group.ctf_sg.id]
   subnet_id              = aws_subnet.ctf_subnet.id
 
   associate_public_ip_address = true
 
-  user_data = file("${path.module}/ctf_setup.sh")
+  user_data_base64 = base64encode(file("${path.module}/ctf_setup.sh"))
 
   tags = {
     Name = "CTF Lab Instance"
