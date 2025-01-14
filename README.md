@@ -1,6 +1,6 @@
 # Phase 1: Linux Command Line CTF Challenge
 
-Welcome, CTF participants! This guide will walk you through the seven challenges you'll face in this Linux Command Line Capture The Flag. Each challenge is designed to test a different aspect of your Linux skills. Remember, all flags are in the format CTF{some_text_here}.
+Welcome, CTF participants! This guide will walk you through the seven challenges you'll face in this Linux Command Line Capture The Flag. **[PLEASE make sure to go through Phase 1 Guide first](https://learntocloud.guide/phase1/)** Each challenge is designed to test a different aspect of your Linux skills. Remember, all flags are in the format CTF{some_text_here}.
 
 ## IMPORTANT NOTE
 
