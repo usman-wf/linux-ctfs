@@ -76,6 +76,6 @@ EOF
 sudo chown -R ctf_user:ctf_user /home/ctf_user/ctf_challenges
 
 # Add a hint to the motd
-echo "Welcome to the Linux Command Line CTF! Your first challenge awaits in /home/ctf_user/ctf_challenges/welcome.txt" | sudo tee -a /etc/motd
+echo "Welcome to the L2C Linux Command Line CTF! Make sure to review the material on learntocloud.guide/phase1 first. Your first challenge awaits in /home/ctf_user/ctf_challenges/welcome.txt" | sudo tee -a /etc/motd
 
 echo "CTF environment setup complete!"
