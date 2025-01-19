@@ -32,7 +32,7 @@ Here are your challenges:
 1. Find the hidden file in this directory and read its contents.
 2. Locate the file with the word "secret" in its name anywhere in the /home/ctf_user directory.
 3. Find the largest file in the /var/log directory and retrieve the flag from it.
-4. Identify the user with UID 1001 and find the flag in their home directory.
+4. Identify the user with UID 1002 and find the flag in their home directory.
 5. Locate the file owned by root with permissions 777 and read its contents.
 6. Find the process running on port 8080 and retrieve the flag from its command.
 7. Decode the base64 encoded flag in the 'encoded_flag.txt' file.
