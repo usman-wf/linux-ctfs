@@ -9,3 +9,4 @@
 | Challenge 5: The Permissive File | CTF{permission_granted} |
 | Challenge 6: The Hidden Service | CTF{port_explorer} |
 | Challenge 7: The Encoded Secret | CTF{base64_decoder} |
+| Challenge 8: SSH Key Authentication | CTF{ssh_key_master} |
