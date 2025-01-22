@@ -99,6 +99,24 @@ Then follow the appropriate guide to deploy the environment.
 
 **Hint:** Linux has a built-in command for base64 decoding. How can you use it to decode the contents of a file?
 
+## Challenge 8: SSH Key Authentication
+
+**Objective:** Configure SSH key-based authentication for secure access to the server.
+
+**Skills tested:**
+
+- SSH key generation
+- File permissions
+- Understanding of SSH configuration
+- Basic security practices
+
+**Hint:**
+
+- SSH keys need specific permissions to work
+- The .ssh directory is hidden
+- Check the permissions of your key files
+- Look for hidden files in the .ssh directory
+
 ## General Tips:
 
 1. Make use of man pages (e.g., man ls) to learn more about command options.
