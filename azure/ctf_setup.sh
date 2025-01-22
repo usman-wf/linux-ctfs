@@ -80,7 +80,7 @@ sudo bash -c 'echo "Congratulations! Here is your SSH flag: $(cat /home/ctf_user
 sudo chown -R ctf_user:ctf_user /home/ctf_user/.ssh
 sudo chmod 700 /home/ctf_user/.ssh
 
-# Create a note file with instructions
+# Create a note file with instructions for SSH Challenge
 cat << EOT > /home/ctf_user/ssh_challenge.txt
 SSH Key Challenge:
 
