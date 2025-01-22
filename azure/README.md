@@ -80,6 +80,7 @@ Your CTF lab consists of 7 challenges, each testing different Linux command line
 5. Locate a file with specific permissions
 6. Find a process running on a specific port(you need to install the tools like `netstat`)
 7. Decode a base64 encoded message
+8. Configure SSH key authentication and find the hidden flag
 
 Work through these challenges to improve your command line skills and find all the flags!
 

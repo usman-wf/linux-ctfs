@@ -36,6 +36,7 @@ Here are your challenges:
 5. Locate the file owned by root with permissions 777 and read its contents.
 6. Find the process running on port 8080 and retrieve the flag from its command.
 7. Decode the base64 encoded flag in the 'encoded_flag.txt' file.
+8. Configure SSH key authentication and find the hidden flag, check ssh_challenge.txt file in home directory for more details.
 
 Good luck, and happy hunting!
 EOT
@@ -73,6 +74,32 @@ nohup ./port_8080_service.sh &
 
 # Challenge 7: Base64 encoded flag
 echo "Q1RGe2Jhc2U2NF9kZWNvZGVyfQ==" > encoded_flag.txt
+
+# Challenge 8: SSH Key Authentication
+sudo mkdir -p /home/ctf_user/.ssh
+echo "CTF{ssh_key_master}" > /home/ctf_user/ssh_flag.txt
+sudo bash -c 'echo "Congratulations! Here is your SSH flag: $(cat /home/ctf_user/ssh_flag.txt)" > /home/ctf_user/.ssh/flag_message'
+sudo chown -R ctf_user:ctf_user /home/ctf_user/.ssh
+sudo chmod 700 /home/ctf_user/.ssh
+
+# Create a note file with instructions for SSH Challenge
+cat << EOT > /home/ctf_user/ssh_challenge.txt
+SSH Key Challenge:
+
+Your task is to:
+1. Create a new SSH key pair on your local machine
+2. Configure the public key for SSH access
+3. Successfully SSH into this instance using your key
+4. Find the flag message in the .ssh directory
+
+Hint: Look into:
+- ssh-keygen command
+- .ssh/authorized_keys file
+- SSH key permissions on both host and server.
+- The hidden .ssh directory
+
+Remember: The .ssh directory and its contents require specific permissions to work!
+EOT
 
 # Set appropriate permissions
 chown -R ctf_user:ctf_user /home/ctf_user/ctf_challenges
