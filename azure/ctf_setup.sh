@@ -17,34 +17,37 @@ cd /home/ctf_user/ctf_challenges
 cat > /usr/local/bin/verify << 'EOFVERIFY'
 #!/bin/bash
 
-ANSWERS=(
-    "CTF{finding_hidden_treasures}"
-    "CTF{search_and_discover}"
-    "CTF{size_matters_in_linux}"
-    "CTF{user_enumeration_expert}"
-    "CTF{permission_sleuth}"
-    "CTF{network_detective}"
-    "CTF{decoding_master}"
-    "CTF{ssh_security_master}"
+ANSWER_HASHES=(
+  
+    "de8f29432e21f56e003c52f71297e7364cea2b750cd2582d62688e311347ff06"  
+    "a48ca3386a76ea8703a6c4e5562832f95364a2dbdaf1c75faae730abd075a23e"  
+    "7e5e6218d604ac7532c7403b6ab4ef41abc45628606abcdb98d6a0c42e2477cb"  
+    "1bb2e87b37adb38fe53f6e71f721e3e9ff00b3f13ce582ce95d4177c3cf49be9" 
+    "0063b9de97d91b65f4abe21f3a426f266fb304b2badc4a93bb80e87dca0ed6b3"  
+    "938d9c97bfc6669e0623a1b6c2f32527fd5b0081c94adb1c65dacbc6cdb04f65"  
+    "04a1503e15934d9442122fd8adb2af6e35c99b41f93728fed691fafe155a1f90" 
+    "4e24fc31e1bd34fd49832226ce10ea6d29fbb49e14792c25a8fa32ddf5ad7df2"  
+    "1605dcdc7e89239383512803f1673cb938467c2916270807e81102894ef15e91" 
+
 )
 
 check_flag() {
     challenge_num=$1
     submitted_flag=$2
     
-    if [ "$submitted_flag" = "CTF{example}" ]; then
-        echo "✓ Example flag verified! Now try finding real flags."
-        show_progress
-        return 0
-    fi
+    submitted_hash=$(echo -n "$submitted_flag" | sha256sum | cut -d' ' -f1)
     
-    if [ "$submitted_flag" = "${ANSWERS[$((challenge_num-1))]}" ]; then
-        echo "✓ Correct flag for Challenge $challenge_num!"
+    if [ "$submitted_hash" = "${ANSWER_HASHES[$challenge_num]}" ]; then
+        if [ "$challenge_num" -eq 0 ]; then
+            echo "✓ Example flag verified! Now try finding real flags."
+        else
+            echo "✓ Correct flag for Challenge $challenge_num!"
+        fi
         echo "$challenge_num" >> ~/.completed_challenges
         sort -u ~/.completed_challenges > ~/.completed_challenges.tmp
         mv ~/.completed_challenges.tmp ~/.completed_challenges
     else
-        echo "✗ Incorrect flag for Challenge $challenge_num. Try again!"
+        echo "✗ Incorrect flag. Try again!"
     fi
     show_progress
 }
@@ -53,10 +56,9 @@ show_progress() {
     local completed=0
     if [ -f ~/.completed_challenges ]; then
         completed=$(sort -u ~/.completed_challenges | wc -l)
+        completed=$((completed-1)) # Subtract example challenge
     fi
-    
     echo "Flags Found: $completed/8"
-    
     if [ "$completed" -eq 8 ]; then
         echo "Congratulations! You've completed all challenges!"
     fi
@@ -66,7 +68,7 @@ case "$1" in
     "progress")
         show_progress
         ;;
-    [1-8])
+    [0-8])
         if [ -z "$2" ]; then
             echo "Usage: verify [challenge_number] [flag]"
             exit 1
@@ -78,7 +80,7 @@ case "$1" in
         echo "  verify [challenge_number] [flag] - Check a flag"
         echo "  verify progress - Show progress"
         echo
-        echo "Example: verify 1 CTF{example}"
+        echo "Example: verify 0 CTF{example}"
         ;;
 esac
 EOFVERIFY
@@ -105,14 +107,22 @@ cat > /etc/motd << 'EOFMOTD'
 |  Learn To Cloud - Linux Command Line CTF    |
 +==============================================+
 
-8 Progressive Linux Challenges
+Welcome! Here are 8 Progressive Linux Challenges.
+Refer to the readme for information on each challenge.
 
-Commands:
-  verify progress     - Show progress
-  verify [num] [flag] - Submit flag
-  verify 1 CTF{example} - Test system
+Once you find a flag, use our verify tool to check your answer
+and review your progress.
 
-First: Complete learntocloud.guide/phase1
+Usage:
+  verify [challenge number] [flag] - Submit flag for verification
+  verify 0 CTF{example} - Example flag
+  verify progress     - Shows your progress
+
+  Try it: type in verify 0 CTF{example}
+
+Good luck!
+Team L2C
+
 +==============================================+
 EOFMOTD
 
