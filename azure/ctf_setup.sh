@@ -2,7 +2,7 @@
 
 # System setup
 sudo apt update
-sudo apt install -y netcat nmap tree
+sudo apt install -y net-tools nmap tree
 
 # SSH configuration
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
