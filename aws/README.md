@@ -55,7 +55,6 @@ To access your lab environment:
 3. Once logged in, you'll see a welcome message with instructions for your first challenge.
 ![ssh into the instance](./images/ssh-screenshot.png)
 
-
 ## Cleaning Up
 
 When you're done with the lab, don't forget to destroy the AWS resources to avoid unnecessary charges:
