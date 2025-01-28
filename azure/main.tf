@@ -1,5 +1,6 @@
-# Variables
+# main.tf
 
+# Variables
 variable "az_region" {
   description = "The region to deploy the CTF lab"
   type        = string
@@ -11,7 +12,6 @@ variable "subscription_id" {
   type = string
 }
 
-# Configure the Azure provider
 provider "azurerm" {
   features {}
   subscription_id = var.subscription_id
@@ -45,6 +45,7 @@ resource "azurerm_public_ip" "ctf_public_ip" {
   location            = azurerm_resource_group.ctf_rg.location
   resource_group_name = azurerm_resource_group.ctf_rg.name
   allocation_method   = "Static"
+  sku                = "Standard"
 }
 
 # Create a network security group
@@ -86,7 +87,7 @@ resource "azurerm_network_interface_security_group_association" "ctf_nic_nsg_ass
   network_security_group_id = azurerm_network_security_group.ctf_nsg.id
 }
 
-# Create a Linux virtual machine
+# Create a Linux virtual machine for CTF
 resource "azurerm_linux_virtual_machine" "ctf_vm" {
   name                = "ctf-vm"
   resource_group_name = azurerm_resource_group.ctf_rg.name
@@ -112,10 +113,27 @@ resource "azurerm_linux_virtual_machine" "ctf_vm" {
     version   = "latest"
   }
 
-  custom_data = base64encode(file("ctf_setup.sh"))
+  custom_data = base64encode(file("${path.module}/ctf_setup.sh"))
+}
+
+resource "null_resource" "wait_for_setup" {
+  depends_on = [azurerm_linux_virtual_machine.ctf_vm]
+  
+  provisioner "remote-exec" {
+    connection {
+      host     = azurerm_linux_virtual_machine.ctf_vm.public_ip_address
+      user     = "ctf_user"
+      password = "CTFpassword123!"
+    }
+    
+    inline = [
+      "while [ ! -f /var/log/setup_complete ]; do sleep 10; done"
+    ]
+  }
 }
 
 # Output the public IP address
 output "public_ip_address" {
   value = azurerm_linux_virtual_machine.ctf_vm.public_ip_address
+  depends_on = [null_resource.wait_for_setup]
 }
