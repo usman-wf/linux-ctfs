@@ -13,7 +13,12 @@ Submit flags using the `verify` command:
 - Submit a flag: `verify [challenge_number] [flag]`
 - Test the system: `verify 0 CTF{example}`
 
-Example: `verify 1 CTF{finding_hidden_treasures}`
+Example: `verify 0 CTF{example}`
+
+```
+ctf_user@ctf-vm:~$ verify 0 CTF{example}
+✓ Example flag verified! Now try finding real flags.
+```
 
 ## Environment Setup
 
