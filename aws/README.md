@@ -39,7 +39,7 @@ Follow these steps to set up and access your CTF lab environment:
     When prompted, type `yes` to confirm.
 
 5. After the apply completes, note the `ctf_instance_public_ip` output. You'll use this to connect to your lab environment.
-![Terrform Apply output](./images/terraform-apply-screenshot.png)
+![Terraform Apply output](./images/terraform-apply.png)
 
 ## Accessing the Lab Environment
 
