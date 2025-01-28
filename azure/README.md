@@ -85,9 +85,9 @@ This lab is designed for learning purposes and uses a password-based login for s
 
 If you encounter any issues:
 
-1. Ensure your AWS CLI is correctly configured with your credentials.
+1. Ensure your Azure CLI is correctly configured with your credentials.
 2. Check that you're using a compatible Terraform version.
-3. Verify that you have the necessary AWS permissions to create the required resources.
+3. Verify that you have the necessary Azure permissions to create the required resources.
 
 If problems persist, please open an issue in this repository.
 
