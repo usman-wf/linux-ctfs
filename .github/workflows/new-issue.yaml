@@ -1,0 +1,47 @@
+name: Reply with FAQ and Conditional Labels
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  reply-and-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process issue for FAQ comment and labels
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueBody = context.payload.issue.body || "";
+            const lowerBody = issueBody.toLowerCase();
+            
+            // Determine labels based on keywords in the issue body
+            let labelsToAdd = [];
+            if (lowerBody.includes("bug") || lowerBody.includes("issue")) {
+              labelsToAdd.push("bug");
+            }
+            if (lowerBody.includes("feature")) {
+              labelsToAdd.push("enhancement");
+            }
+            
+            // Only reply with the FAQ if "bug" or "issue" is mentioned
+            if (lowerBody.includes("bug") || lowerBody.includes("issue")) {
+              github.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: "Hi there! Please check our [FAQ](https://github.com/learntocloud/linux-ctfs/wiki/FAQs) before proceeding."
+              });
+            } else {
+              console.log("No 'bug' or 'issue' keyword found; no FAQ comment added.");
+            }
+            
+            // Add any collected labels to the issue
+            if (labelsToAdd.length > 0) {
+              github.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: labelsToAdd
+              });
+            }
