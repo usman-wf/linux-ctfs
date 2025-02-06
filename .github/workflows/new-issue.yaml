@@ -7,6 +7,8 @@ on:
 jobs:
   reply-and-label:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Process issue for FAQ comment and labels
         uses: actions/github-script@v7
