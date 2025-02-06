@@ -11,6 +11,7 @@ jobs:
       - name: Process issue for FAQ comment and labels
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const issueBody = context.payload.issue.body || "";
             const lowerBody = issueBody.toLowerCase();
