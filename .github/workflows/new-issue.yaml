@@ -45,12 +45,26 @@ jobs:
               });
             }
             
+            // Assign issue
+            try {
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                assignees: ['rishabkumar7'] 
+              });
+              console.log('Successfully assigned issue');
+            } catch (error) {
+              console.error('Error assigning issue:', error);
+              throw error;
+            }
+
             // Check for bug-related keywords and add FAQ comment
             if (issueBody.includes('bug') || issueBody.includes('issue')) {
               const faqComment = `
               Thanks for reporting this issue! 👋
               
-              Before we proceed, please check our (FAQ page)[https://github.com/learntocloud/linux-ctfs/wiki/FAQs].
+              Before we proceed, please check our [FAQ page](https://github.com/learntocloud/linux-ctfs/wiki/FAQs).
               
               If your issue isn't addressed in the FAQ, please provide:
               - Steps to reproduce
