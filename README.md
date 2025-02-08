@@ -22,13 +22,7 @@ ctf_user@ctf-vm:~$ verify 0 CTF{example}
 
 ## Environment Setup
 
-Deploy the lab environment in your preferred cloud provider:
-
-```sh
-git clone https://github.com/learntocloud/linux-ctfs
-```
-
-Then follow the setup guide for your platform:
+Follow the setup guide for your preferred cloud provider:
 
 - [AWS](./aws/README.md)
 - [Azure](./azure/README.md)
