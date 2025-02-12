@@ -108,7 +108,7 @@ DNS troubleshooting is an important skill, fix the issue and find the flag.
 
 #### Challenge 10: Remote upload
 
-Use a remote transfer application to transfer a file to the /ctf_challenges directory and receive your flag 
+Use a remote transfer application to transfer a file to the `ctf_challenges` directory and receive your flag 
 
 - **Skills**: Upload files to remote servers
 - **Hints**: scp, CyberDuck, WINscp
