@@ -71,7 +71,7 @@ To access your lab environment:
 
 ## Cleaning Up
 
-When you're done with the lab, don't forget to destroy the AWS resources to avoid unnecessary charges:
+When you're done with the lab, don't forget to destroy the Azure resources to avoid unnecessary charges:
 
 `terraform destroy`
 
