@@ -39,7 +39,7 @@ ANSWER_HASHES=(
     "a7c0e0dba746fb5b0068de9943cad29273c91426174b1fdf32a42dc2af253a3f"
     "98d7b6c1cfb09574f06893baccd19f86ebf805caf5a21bf2b518598384a2d3fa"
     "90b6819737a8f027df23a718d1a82210fea013d1ae3da081494e9c496e4284da"
-    "f57abf6a20b16cc7240e334aebcf9916cafba6280dbc0661db400d685a5d54fe"
+    "a6bbbea83c12b335d890456ecca072c61bc063dee503ed67cfa750538ad4ed69"
 )
 
 check_flag() {
@@ -211,7 +211,7 @@ sudo systemctl restart nginx
 sudo cat > /usr/local/bin/ping_message.sh << 'EOF'
 #!/bin/bash
 while true; do
-    ping -p 4354467b4e65745f436861747d -c 1 127.0.0.1
+    ping -p 4354467b6e65745f636861747d -c 1 127.0.0.1
     sleep 1
 done
 EOF
