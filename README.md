@@ -29,6 +29,8 @@ Follow the setup guide for your preferred cloud provider:
 
 ## Challenges
 
+NOTE: You should be able to complete all challenges in about 2 to 3 hours. The lab is intentionally made to be done in one go. If you power off the VM and power it back on, certain challenges (specifically challenges 6, 10, 11, and 12) will not work properly as they depend on running services.
+
 ### Challenge 1: The Hidden File
 
 Find and read a hidden file in the `ctf_challenges` directory.
