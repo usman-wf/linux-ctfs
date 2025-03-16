@@ -113,7 +113,7 @@ The web server is running on a non-standard port. Find and fix it.
 Someone is sending secret messages via ping packets.
 
 - **Skills**: Network dumps, packet inspection, decoding
-- **Hint**: Utilize general network analysis techniques to inspect traffic and search for concealed information.
+- **Hint**: Utilize general network analysis techniques to inspect traffic and search for concealed information. Check all interfaces and protocols.
 
 ## Tips
 
