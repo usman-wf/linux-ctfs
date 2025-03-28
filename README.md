@@ -124,4 +124,4 @@ Someone is sending secret messages via ping packets.
 
 ## Contributing
 
-If you encounter any issues or would like to contribute a lab, please open an issue in this repository.
+Please only submit issues with the lab and not if you are having difficulties completing any challenge. That is the point, to learn.
