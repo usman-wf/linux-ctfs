@@ -51,7 +51,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                assignees: ['rishabkumar7'] 
+                assignees: ['rishabkumar7', 'madebygps'] 
               });
               console.log('Successfully assigned issue');
             } catch (error) {
