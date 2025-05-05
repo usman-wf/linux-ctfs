@@ -1,5 +1,5 @@
 # Phase 1: Linux Command Line CTF Challenge
-
+for testing purposes only
 This set of progressive Capture The Flag (CTF) challenges will test your Linux command line skills. Each challenge builds upon previous concepts while introducing new ones. All flags follow the format `CTF{some_text_here}`.
 
 > [!IMPORTANT]  
